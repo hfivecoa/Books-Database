@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <h1>Book Report</h1>
+
+    <h2>Total Number of Books</h2>
+    <p>Total Books: <strong>{{ total_books }}</strong></p>
+
+    <h2>Year(s) with the Most Books</h2>
+    <ul>
+        {% for year in years_with_most_books %}
+            <li>Year: <strong>{{ year.publicationYear }}</strong> | Books Count: <strong>{{ year.books_count }}</strong></li>
+        {% endfor %}
+    </ul>
+
+    <h2>First Book Added</h2>
+    {% if first_book %}
+        <p><strong>Title:</strong> {{ first_book.booktitle }}</p>
+        <p><strong>Published Year:</strong> {{ first_book.publicationYear }}</p>
+    {% else %}
+        <p>No books found.</p>
+    {% endif %}
+
+    <h2>Most Recent Book Added</h2>
+    {% if most_recent_book %}
+        <p><strong>Title:</strong> {{ most_recent_book.booktitle }}</p>
+        <p><strong>Published Year:</strong> {{ most_recent_book.publicationYear }}</p>
+    {% else %}
+        <p>No books found.</p>
+    {% endif %}
+{% endblock %}

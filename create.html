@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="width: 100%">{% block title %} Add a New Book {% endblock %}</h1>
+    <form method="post">
+        <p>
+            <label for="booktitle">Title</label>
+            <input type="text" name="booktitle"
+                   placeholder="First name">
+            </input>
+        </p>
+
+        <p>
+            <label for="authorName">Author Name</label>
+            <input type="text" name="authorName"
+                   placeholder="authorName">
+            </input>
+        </p>
+
+        <p>
+            <label for="genre">Genre</label>
+            <input type="text" name="genre"
+                   placeholder="Book genre">
+            </input>
+        </p>
+
+
+        <p>
+            <label for="publicationYear">publication year</label>
+            <input type="number" name="publicationYear"
+                   placeholder="Publication Year">
+            </input>
+        </p>
+
+        <p>
+        <label for="description">Description</label>
+        <br>
+        <textarea name="description"
+                  placeholder="Description"
+                  rows="15"
+                  cols="60"
+                  ></textarea>
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+
+        
+     
+    </form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="{{ url_for('edit_book', book_id=book.id) }}" method="post">
+
+    <h1>Edit Book</h1>
+
+    <label for="booktitle">Title:</label>
+    <input type="text" id="booktitle" name="booktitle" value="{{ book.booktitle }}" required><br>
+
+    <label for="author">Author(s) (comma-separated):</label>
+    <input type="text" id="author" name="author" 
+           value="{% for a in book.author %}{{ a.authorName }}{% if not loop.last %}, {% endif %}{% endfor %}" 
+           required><br>
+
+    <label for="publicationYear">Publication Year:</label>
+    <input type="number" id="publicationYear" name="publicationYear" value="{{ book.publicationYear }}" required><br>
+
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" value="{{ book.genre }}" required><br>
+
+    <p>
+        <label for="description">Description</label>
+        <br>
+        <textarea name="description"
+                  placeholder="Description"
+                  rows="15"
+                  cols="60"
+                  ></textarea>
+    </p>
+
+    <button type="submit">Save Changes</button>
+</form>
+{% endblock %}
